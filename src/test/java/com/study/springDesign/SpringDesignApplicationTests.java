@@ -16,8 +16,10 @@ class SpringDesignApplicationTests {
     private UserMapper userMapper;
     @Test
     void contextLoads() {
-        int count = userMapper.insertUser(new User(null, "泡影", "12342345643", "男", "diefoew[", "江西省", "empty_city"));
-        System.out.println(count);
+//        int count = userMapper.insertUser(new User(null, "泡影", "12342345643", "男", "diefoew", "江西省", "empty_city",null,null));
+        int i = userMapper.countUser();
+        System.out.println(i);
+//        System.out.println(count);
     }
 
 }
