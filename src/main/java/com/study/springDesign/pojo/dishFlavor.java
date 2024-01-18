@@ -12,11 +12,11 @@ import java.util.Date;
 public class dishFlavor {
     private Long id;
 
-    private Long dishId;
+    private Long dishId;//餐品id
 
     private String name;
 
-    private String value;
+    private String value;//口味数据
 
     private Date createTime;
 
@@ -26,5 +26,5 @@ public class dishFlavor {
 
     private Long updateUser;
 
-    private Integer isDeleted;
+    private Integer isDeleted;//是否被删除
 }
