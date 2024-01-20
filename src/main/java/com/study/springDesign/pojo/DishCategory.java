@@ -10,11 +10,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DishCategory {
-    private Long id;
+    private Long categoryId;
 
     private Integer type;
 
-    private String name;
+    private String categoryName;
 
     private Date createTime;
 

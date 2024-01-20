@@ -1,0 +1,5 @@
+##优化目标
+1.实现redis缓存，继续学习redis原理
+2.彻底弄懂SpringSecurity在springboot中的登录校验和权限控制原理及其实现
+3.实现数据库的读写分离，学习mysql的主从分离策略，学习myCat实现主从分离
+4.实现Nginx反向代理

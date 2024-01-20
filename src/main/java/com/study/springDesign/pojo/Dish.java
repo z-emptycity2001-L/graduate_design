@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -36,5 +37,9 @@ public class Dish {
     private Long updateUser;
 
     private Integer isDeleted;
+
+    private DishCategory dishCategory;
+
+    private List<DishFlavor> dishFlavors;
 
 }

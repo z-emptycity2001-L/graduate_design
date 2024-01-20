@@ -3,12 +3,13 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/graduate_design
+    url: jdbc:mysql://localhost/graduate_design?characterEncoding=utf-8
     username: root
     password: 15216252635zl
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    lazy-loading-enabled: true
   type-aliases-package: com.study.springDesign.pojo
   mapper-locations: classpath:com/study/springDesign/mapper/*.xml

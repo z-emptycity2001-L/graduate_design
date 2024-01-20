@@ -9,14 +9,14 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class dishFlavor {
-    private Long id;
+public class DishFlavor {
+    private Long flavorId;
 
     private Long dishId;//餐品id
 
-    private String name;
+    private String flavorName;
 
-    private String value;//口味数据
+    private String flavorValue;//口味数据
 
     private Date createTime;
 
