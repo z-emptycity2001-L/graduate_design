@@ -23,8 +23,6 @@ class SpringDesignApplicationTests {
     private DishMapper dishMapper;
     @Test
     void contextLoads() {
-        List<Map<String, Object>> dishes = dishMapper.selectAllDishes();
-        System.out.println(dishes.toString());
     }
 
 }
