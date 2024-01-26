@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> searchUser(User user) {
-        return userMapper.selectUserByNicknameAndPassword(user);
+    public User searchUserByUsername(String username) {
+        return userMapper.selectUserByUsername(username);
     }
 }

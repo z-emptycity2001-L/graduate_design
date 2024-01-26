@@ -10,5 +10,5 @@ public interface UserMapper {
     int insertUser(User user);
     int countUser();
 
-    List<User> selectUserByNicknameAndPassword(User user);
+    User selectUserByUsername(String username);
 }

@@ -9,5 +9,5 @@ public interface UserService {
     int registerUser(User user) ;
     int selectUserNumber();
 
-    List<User> searchUser(User user);
+    User searchUserByUsername(String username);
 }
