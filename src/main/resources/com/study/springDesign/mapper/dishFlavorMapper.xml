@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springDesign.mapper.dishFlavorMapper">
+    <resultMap id="flavorMap" type="map">
+        <id property="id" column="c_id"/>
+        <result property="flavorName" column="c_name"/>
+        <result property="value" column="value"/>
+    </resultMap>
+    <select id="selectFlavorByIdStep2" resultMap="flavorMap">
+        select c.id as c_id,c.name as c_name,value from dish_flavor as c where dish_id=#{id}
+    </select>
+</mapper>
