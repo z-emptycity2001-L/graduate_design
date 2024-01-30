@@ -98,34 +98,6 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:6.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:6.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.26" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:6.0.9" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:6.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:6.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:6.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:6.1.0" level="project" />
-    <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt:0.9.1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.15.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.15.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
-    <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-oxm:6.0.9" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:6.0.9" level="project" />
-    <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:6.2.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-unix-common:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.92.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.5.6" level="project" />
-    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:3.1.0" level="project" />
