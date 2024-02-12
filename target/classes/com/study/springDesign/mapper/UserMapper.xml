@@ -3,31 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.springDesign.mapper.UserMapper">
-<<<<<<< HEAD
+    <!--    用户注册-->
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
         insert into user(id,username,password,phone,sex,avatar,address,wechat_name,create_time,update_time)
         values(#{id},#{username},#{password},#{phone},#{sex},#{avatar},#{address},#{wechatName},#{createTime},#{updateTime});
     </insert>
+    <!--    统计用户数量-->
     <select id="countUser">
         select count(*) from user;
     </select>
+    <!--    用户登录-->
     <select id="selectUserByUsername" resultType="user">
         select * from user where username=#{username}
-=======
-<!--    用户注册-->
-    <insert id="insertUser">
-        insert into user(id,nickname,password,phone,sex,avatar,address,wechat_name,create_time,update_time)
-        values(#{id},#{nickname},#{password},#{phone},#{sex},#{avatar},#{address},#{wechatName},#{createTime},#{updateTime});
-    </insert>
-<!--    统计用户数量-->
-    <select id="countUser">
-        select count(*) from user;
-    </select>
-
-<!--    用户登录-->
-    <select id="selectUserByNicknameAndPassword" resultType="user">
-        select * from user where nickname=#{nickname}
->>>>>>> dish
     </select>
 </mapper>
 

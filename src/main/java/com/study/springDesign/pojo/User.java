@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,6 +20,6 @@ public class User implements Serializable {
     private String avatar;
     private String address;
     private String wechatName;
-    private Timestamp createTime;
-    private Timestamp updateTime;
+    private Date createTime;
+    private Date updateTime;
 }
