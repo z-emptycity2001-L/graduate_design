@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/user")
@@ -35,6 +36,8 @@ public class UserController {
 
     @Value("${user.defaultPassword}")
     private String defaultPassword;
+    @Value("${token.expiration}")
+    private String expiration;
     @PostMapping("/register")
     public R register(@RequestBody User user){
         //判断该用户是否存在
@@ -46,7 +49,6 @@ public class UserController {
             user.setPassword(defaultPassword);
         }
         //设置用户创建时间和更新时间
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         user.setCreateTime(date);
         user.setUpdateTime(date);
@@ -58,16 +60,7 @@ public class UserController {
         if(count==0){
             return R.success("注册失败，请稍后再试") ;
         }
-        //在redis中缓存用户信息
-        redisTemplate.opsForValue().set("login"+user.getId(),user);
-//        生成token凭证
-        String token = jwtTokenUtil.generateToken(new Login(user));
-//        返回执行结果
-        R data = R.success("注册成功");
-        Map<String, String> map = new HashMap<>();
-        map.put("token",token);
-        data.setData(map);
-        return data;
+        return R.success("注册成功");
     }
 
     @GetMapping("/count")
@@ -77,6 +70,27 @@ public class UserController {
         map.put("data",i);
 //        return i;
         return R.success(null,map);
+    }
+
+    @PostMapping("/login")
+    public R login(@RequestBody User user){
+        User userByUsername = userService.searchUserByUsername(user.getUsername());
+        if(userByUsername==null) return R.error("用户名或密码错误");
+        boolean matches = passwordEncoder.matches(user.getPassword(), userByUsername.getPassword());
+        if(!matches){
+            return R.error("用户名或密码错误");
+        }else{
+            //在redis中缓存用户信息
+            redisTemplate.opsForValue().set("login"+user.getUsername(),user, Long.parseLong(expiration), TimeUnit.MILLISECONDS);
+//        生成token凭证
+            String token = jwtTokenUtil.generateToken(new Login(user));
+//        返回执行结果
+            R data = R.success("登录成功");
+            Map<String, String> map = new HashMap<>();
+            map.put("token",token);
+            data.setData(map);
+            return data;
+        }
     }
 
 }

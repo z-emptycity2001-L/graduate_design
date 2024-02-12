@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springDesign.mapper.EmployeeMapper">
+    <insert id="insertEmployee" >
+        insert into employee(id,username,name,gender,id_card,phone,status,update_time,create_time,update_user,create_user)
+        values(#{id},#{username},#{name},#{gender},#{idCard},#{phone},#{status},#{updateTime},#{createTime},#{updateUser},#{createUser})
+    </insert>
+    <select id="getAllEmployee" resultType="Employee">
+        select * from employee
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

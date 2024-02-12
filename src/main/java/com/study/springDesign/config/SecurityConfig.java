@@ -66,7 +66,7 @@ public class SecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFil
         httpSecurity.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(authorizeHttpRequests->authorizeHttpRequests
                     //允许直接访问的接口，不需要认证
-                    .requestMatchers(HttpMethod.POST,"/login","/user/register","/index").permitAll()
+                    .requestMatchers(HttpMethod.POST,"/user/login","/user/register","/index").permitAll()
                     // 允许 SpringMVC 的默认错误地址匿名访问
                     .requestMatchers("/error").permitAll()
                     .anyRequest().authenticated()

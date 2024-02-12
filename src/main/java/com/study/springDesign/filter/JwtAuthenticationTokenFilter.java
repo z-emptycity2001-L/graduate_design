@@ -32,21 +32,21 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 //        获取token
         String token = request.getHeader("token");
         if (StringUtils.hasText(token)) {
-            String userId;
+            String username;
             //        解析token
             try {
                 Claims claims = jwtTokenUtil.getClaimsFromToken(token);
-                userId = claims.getSubject();
+                username = claims.getSubject();
             } catch (Exception e) {
                 throw new RuntimeException("无效token");
             }
-            if(userId!=null){
+            if(username!=null){
 //                User user = (User) redisUtil.get("login" + userId);
-                User user = (User) redisTemplate.opsForValue().get("login" + userId);
+                User user = (User) redisTemplate.opsForValue().get("login" + username);
                 // TODO 获取权限信息封装到Authentication中
-
+                String s = user.toString();
 //                如果token有效
-                if (!jwtTokenUtil.validateToken(token, new Login(user))) {
+                if (jwtTokenUtil.validateToken(token, new Login(user))) {
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                             user,
                             null,
