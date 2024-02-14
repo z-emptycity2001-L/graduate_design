@@ -10,6 +10,18 @@
     <select id="getAllEmployee" resultType="Employee">
         select * from employee
     </select>
+    <select id="selectEmployeeByUsername">
+        select count(*) from employee where username=#{username}
+    </select>
+
+    <delete id="deleteEmployeeById">
+        delete from employee where id=#{id}
+    </delete>
+
+    <update id="updateStatusById">
+        update employee set status=#{status} where id=#{id}
+    </update>
+
 </mapper>
 
 

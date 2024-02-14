@@ -21,4 +21,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getEmploy() {
         return employeeMapper.getAllEmployee();
     }
+
+    @Override
+    public int getEmployeeByUsername(String username) {
+        return employeeMapper.selectEmployeeByUsername(username);
+    }
+
+    @Override
+    public int delEmployById(Integer id) {
+       return employeeMapper.deleteEmployeeById(id);
+    }
+    @Override
+    public int changeStatusById(Integer status,Integer id){
+        return employeeMapper.updateStatusById(status,id);
+    }
 }
