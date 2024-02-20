@@ -44,9 +44,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 //                User user = (User) redisUtil.get("login" + userId);
                 User user = (User) redisTemplate.opsForValue().get("login" + username);
                 // TODO 获取权限信息封装到Authentication中
-                String s = user.toString();
 //                如果token有效
-                if (jwtTokenUtil.validateToken(token, new Login(user))) {
+                Login login = new Login(user);
+                if (jwtTokenUtil.validateToken(token, login)) {
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                             user,
                             null,

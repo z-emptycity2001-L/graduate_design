@@ -1,5 +1,6 @@
 package com.study.springDesign.controller;
 
+import com.study.springDesign.Util.R;
 import com.study.springDesign.pojo.Dish;
 import com.study.springDesign.service.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,11 @@ public class DishController {
         dishService.getAllDish().forEach(dish -> System.out.println("spring"+dish));
 //        System.out.println(dishService.getAllDish().toString());
         return dishService.getAllDish();
+    }
+
+    @GetMapping("/getDish")
+    public R getDishController(){
+        Dish dish = dishService.getDish();
+        return R.success("获取成功",dish);
     }
 }

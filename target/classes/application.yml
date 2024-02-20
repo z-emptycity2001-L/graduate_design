@@ -1,5 +1,5 @@
 token:
-  expiration: 259200000  #token过期时间
+  expiration: 259200  #token过期时间 3天
   secret: "GRADUATE_DESIGN"    #token密匙
 user:
   defaultPassword: "123"

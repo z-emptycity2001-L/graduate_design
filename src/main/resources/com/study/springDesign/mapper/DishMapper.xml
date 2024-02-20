@@ -26,4 +26,9 @@
         from dish as a left join dish_category as b on a.category_id=b.id
                        left join dish_flavor as c on a.id=c.dish_id;
     </select>
+
+    <select id="selectAllDish" resultType="Dish">
+        select *
+        from dish;
+    </select>
 </mapper>

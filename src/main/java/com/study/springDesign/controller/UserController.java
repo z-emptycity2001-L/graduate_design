@@ -11,8 +11,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -71,25 +69,36 @@ public class UserController {
 //        return i;
         return R.success(null,map);
     }
-
     @PostMapping("/login")
     public R login(@RequestBody User user){
         User userByUsername = userService.searchUserByUsername(user.getUsername());
         if(userByUsername==null) return R.error("用户名或密码错误");
         boolean matches = passwordEncoder.matches(user.getPassword(), userByUsername.getPassword());
+        User redisUser = (User) redisTemplate.opsForValue().get("login" + user.getUsername());
         if(!matches){
             return R.error("用户名或密码错误");
         }else{
-            //在redis中缓存用户信息
-            redisTemplate.opsForValue().set("login"+user.getUsername(),user, Long.parseLong(expiration), TimeUnit.MILLISECONDS);
-//        生成token凭证
-            String token = jwtTokenUtil.generateToken(new Login(user));
-//        返回执行结果
             R data = R.success("登录成功");
             Map<String, String> map = new HashMap<>();
-            map.put("token",token);
-            data.setData(map);
-            return data;
+            if(redisUser!=null){//如果redis缓存中存在该user数据
+                Login login = new Login(user);
+                String token = jwtTokenUtil.generateToken(login);
+                Long expire = redisTemplate.getExpire("expires", TimeUnit.SECONDS);
+                map.put("token",token);
+                map.put("expire", String.valueOf(expire));
+                data.setData(map);
+                return data;
+            } else{
+                //在redis中缓存用户信息
+                redisTemplate.opsForValue().set("login"+user.getUsername(),user, Long.parseLong(expiration), TimeUnit.SECONDS);
+//        生成token凭证
+                String token = jwtTokenUtil.generateToken(new Login(user));
+//        返回执行结果
+                map.put("token",token);
+                map.put("expire",expiration);
+                data.setData(map);
+                return data;
+            }
         }
     }
 

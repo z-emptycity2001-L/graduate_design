@@ -9,4 +9,5 @@ import java.util.Map;
 @Mapper
 public interface DishMapper {
     List<Map<String,Object>> selectAllDishesStep1();
+    Dish selectAllDish();
 }

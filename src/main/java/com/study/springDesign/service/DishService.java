@@ -7,4 +7,6 @@ import java.util.Map;
 
 public interface DishService {
     List<Map<String,Object>> getAllDish();
+
+    Dish getDish();
 }
