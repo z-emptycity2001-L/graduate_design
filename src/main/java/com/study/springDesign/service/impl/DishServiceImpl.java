@@ -19,7 +19,27 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public Dish getDish() {
-        return dishMapper.selectAllDish();
+    public List<Map<String, Object>> getDish(int pageIndex, int pageSize) {
+        return dishMapper.selectDishByPage(pageIndex,pageSize);
+    }
+
+    @Override
+    public List<Dish> getDish() {
+        return  dishMapper.selectAllDish();
+    }
+
+
+    @Override
+    public int getDishNumber() {
+        return dishMapper.selectDishNumber();
+    }
+    @Override
+    public int deleteDish(Long id) {
+        return dishMapper.deleteDishById(id);
+    }
+
+    @Override
+    public int changeDishStatus(int status,Long id) {
+        return dishMapper.updateDishStatusById(status,id);
     }
 }

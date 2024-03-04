@@ -9,5 +9,13 @@ import java.util.Map;
 @Mapper
 public interface DishMapper {
     List<Map<String,Object>> selectAllDishesStep1();
-    Dish selectAllDish();
+    List<Dish> selectAllDish();
+
+    int selectDishNumber();
+
+    List<Map<String,Object>> selectDishByPage(int pageIndex,int pageSize);
+
+    int deleteDishById(Long id);
+
+    int updateDishStatusById(int status,Long id);
 }

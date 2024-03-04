@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 import java.util.*;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/admin/employee")
 @CrossOrigin(origins = "*")
 public class employeeController {
     @Autowired

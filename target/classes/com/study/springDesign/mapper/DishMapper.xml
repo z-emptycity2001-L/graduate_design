@@ -27,8 +27,30 @@
                        left join dish_flavor as c on a.id=c.dish_id;
     </select>
 
+<!--    获取所有菜品-->
     <select id="selectAllDish" resultType="Dish">
         select *
         from dish;
+    </select>
+<!--    获取菜品数量-->
+    <select id="selectDishNumber">
+        select count(*) from dish;
+    </select>
+
+    <resultMap id="DishPageMap" type="map">
+        <id column="a_id" property="id"/>
+        <result column="a_name" property="name"/>
+        <result column="b_name" property="bName"/>
+        <result column="price" property="price"/>
+        <result column="image" property="image"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+        <result column="a_create_user" property="createUser"/>
+        <result column="a_update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="selectDishByPage" resultMap="DishPageMap">
+        SELECT a.id as a_id, a.name as a_name,b.name as b_name,price,image,description,status,a.create_user as a_create_user,a.update_time as a_update_time FROM graduate_design.dish as a left join graduate_design.dish_category as b on a.category_id=b.id
+            limit #{pageIndex},#{pageSize}
     </select>
 </mapper>
